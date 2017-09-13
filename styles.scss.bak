@@ -1,0 +1,417 @@
+/*
+http://sass-lang.com/guide
+ */
+ 
+//@import 'reset';
+
+.resets{
+	margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+@import 'clearfix';
+
+$text-color: #000;
+$link-color: #1D745A;
+$link-hover-color: #3d9080;
+$link-visited-color: #900090;
+$background-color: #ffffff;
+$header-background: #ff0000;
+$header-background-menu: #ff7020;
+$header-color: #ffffff;
+$nav-boarder: #ffeeaa;
+$sel-back-color: #ffaa55;;
+$sel-color: #fff;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+/*begin our styles*/
+ 
+body {
+	@extend .resets;
+    font: 16px/1.4em 'PT Sans', sans-serif;;
+    color:$text-color;
+	background: $background-color;	
+}
+ 
+p,
+ul {
+    margin: 0 0 1.5em;
+    
+ 
+ul {
+    list-style: disc;
+    padding: 0 0 0 0px;
+}
+ 
+a {
+    color: $link-color;
+}
+a:visited{
+    color: $link-visited-color;
+}
+a:hover{
+    color: $link-hover-color;
+}
+ 
+h1 {
+ 
+}
+em{
+	font-style: italic;
+}
+strong{
+	font-weight: bold;
+}
+ 
+h2 {
+    font-family: 'PT Serif', serif;
+    font-size: 32px;
+    line-height: 1.4em;
+    margin: 0 0 .4em;
+    font-weight: bold;
+}
+ 
+/*layout*/
+ 
+.wrapper {
+}
+ 
+article {
+    border-bottom: 1px solid #d8d8d8;
+    padding: 10px 20px 0 20px;
+    margin: 10px 0;
+}
+ 
+/*header*/
+ 
+header {
+@extend .resets;
+    display: block;
+    background: $header-background;
+    padding: 0px 0px;
+	
+}
+ 
+/*We do mobile first assuming a mobile phone with less than 500px resolution in width, portrait*/
+#rootnavhide {
+	color: $sel-color;
+    background: $sel-back-color;
+	display: inline;
+}
+#rootnavhide_slash {
+	display: inline;
+}
+#rootnavhide_colon {
+	display: none;
+}
+
+
+.lang_nav{
+	@extend .resets;
+
+	display: inline;
+	position: relative;
+	float: left;
+	top: 0px;
+	background: none;		
+	margin-top: 0px;/*change this if you give the page a bigger titel*/
+	
+	li {
+		display : inline;
+		
+		a {
+			display: block;
+			padding: 0 0px;
+			color: $header-color;
+			text-decoration: none;
+			font-weight: normal;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+			letter-spacing: 0.1em;
+			line-height: 1em;
+			height: 1em;
+			border-bottom: 0px solid $header-background;
+			img{
+				border:none;
+				outline: none;
+			}
+			
+			
+		}
+		a:hover,
+		a:focus {
+			color: $header-background;
+			background: $header-color;
+		}
+		
+
+	}
+	li:last-child a {
+		border-bottom: none;
+	}
+	ul {
+		list-style: none;
+		background: $header-background;
+		padding: 0px 0;
+		margin: 0em;
+	}
+ }
+ #en,#de {
+    /*background-image:url(us.png);
+	background-repeat:no-repeat;
+	background-position:center;
+	border: 0;
+    display:block;
+	background-size: 100%;
+	*/	
+	
+	display: block;
+    margin: auto;
+	height: 1em;
+    width: auto;
+}
+ 
+.root_nav{
+	@extend .lang_nav;
+	position: relative;
+	float: left;
+	background:none;
+	background: none;
+
+	margin-left: 1 em;
+	
+	li{
+	
+		a{
+			float: left;
+			border: none;
+			padding: 0 0.5em;
+			font-weight: bold;
+			@include border-radius(2px);
+			background:none;
+			border-bottom: 0px solid $header-background;
+				line-height: 2em;
+			height: 2em;
+		}
+		h1 {
+			@extend .resets;
+			float: left;
+			border: none;
+			font-weight: bold;
+			display: block;
+			color: $header-color;
+			text-decoration: none;
+			font-weight: bold;
+			text-transform: uppercase;
+			line-height: 2em;
+			height: 2em;
+			background:none;
+		}
+	}
+	ul {
+		padding: 0px 0;
+		background:none;
+	}
+}
+
+	
+label.to_nav {
+	@extend .lang_nav;
+	position: relative;
+	float: left;
+	left: auto;
+	right: 0px;
+	top: 0px;
+    
+    color: $header-color;
+	background:none;
+    text-decoration: none;
+    padding: 0 0.5em;
+	margin-left:0.5em;
+		margin-right:0.5em;
+  font-weight: bold;
+			display: block;
+			color: $header-color;
+			text-decoration: none;
+			font-weight: bold;
+			text-transform: uppercase;
+			line-height: 2em;
+			height: 2em;
+			background:$header-background-menu;
+	@include border-radius(2px);
+	 transform:scale(1.5,1); /* W3C */
+    -webkit-transform:scale(1.5,1); /* Safari and Chrome */
+    -moz-transform:scale(1.5,1); /* Firefox */
+    -ms-transform:scale(1.5,1); /* IE 9 */
+    -o-transform:scale(1.5,1); /* Opera */
+}
+
+label.to_nav:hover,
+label.to_nav:focus {
+    color: $header-background;
+    background: $header-color;
+}
+
+/*navigation*/ 
+.primary_nav{
+	@extend .lang_nav;
+	left: 0px;
+	display: none;
+	right: auto;
+	margin-top: 2em;/*change this if you give the page a bigger titel*/
+	position: absolute;
+	float: none;
+	
+	li{
+		background:none;
+		a{
+			padding: 0em 0.5em;
+			border-bottom: 1px solid $nav-boarder;
+				line-height: 2em;
+			height: 2em;
+		}
+	}
+	ul {
+		padding: 0px 0;
+		background: $header-background-menu;
+	}
+ }
+ 
+/*footer*/
+ 
+footer {
+    font-family: 'PT Serif', serif;
+    font-style: italic;
+    text-align: center;
+    font-size: 14px;
+}
+
+/*progressive enhancement*/
+/*bigger webbroser with minimal width 500px we do not use min-device-width because otherwise zooming would not work for desktop*/
+@media only screen and (min-width: 500px) {
+
+#rootnavhide {
+	display: none;
+}
+#rootnavhide_slash {
+	display: none;
+}
+#rootnavhide_colon {
+	display: inline;
+}
+
+    label.to_nav {
+        display: none;
+    }
+  .wrapper {
+        position: relative;
+		/*width: 768px;*/
+        margin: auto;
+    }
+     
+    .primary_nav {
+		display: inline ;
+        position: relative;
+		left: 1px;
+		float: left;
+		margin-top: 0px;
+		background:none;
+		li {
+			background:none;
+	
+			a {
+				float: left;
+				border: none;
+				padding: 0 0.5em;
+				@include border-radius(2px);
+				border-bottom: 1px solid $header-background;
+				background:none;
+	
+			}
+		}
+		ul {
+			background:none;
+	
+		}
+    }
+}
+/*very hires screen on mobile cause problem so we use vw 100vw is viewportwidth*/
+/*unfortunately I have not found a way to distinguish these devices from a big screen on desktop*/
+/*this might help: http://stephen.io/mediaqueries/*/
+/*
+ @media only screen and (min-width: 2047px) {
+	body {
+		font-size: 2vw;
+	}
+	ul{
+		list-style: disc;
+		padding: 0 0 0 2.0vw;
+	}
+	h2 {
+		font-size: 3.2vw;
+	 
+	}
+	article {
+		border-bottom: 1px solid #d8d8d8;
+		padding: 1.0vw 2.0vw 0 2.0vw;
+		margin: 1.0vw 0;
+	}
+	header {
+		font-size: 2vw;
+		padding: 1.5vw 2.0vw;	
+	}
+	.root_nav{
+		li{
+			a{
+				padding: 0 1.0vw;
+			}
+		}
+		ul {
+			padding: 0.5vw 0;
+		}
+	}
+}
+*/
+
+/* Advanced Checkbox Hack */
+
+/* 
+ * pseudo-class + general/adjacent sibling doesn't work
+ * on Android <= 4.1.2 so we need a hack:
+ *
+ * A useless animation :D
+ */
+body { -webkit-animation: bugfix infinite 1s; }
+@-webkit-keyframes bugfix { from {padding:0;} to {padding:0;} }
+
+input[type=checkbox] {
+   position: absolute;
+   top: -9999px;
+   left: -9999px;
+}
+
+
+
+/* checked */
+input[type=checkbox]:checked ~ .primary_nav{
+		display:  inline ;
+}
+
+#selected,#rootnavsel,.selectedlang {
+    color: $sel-color;
+    background: $sel-back-color;
+}
+
+ 
+
+
